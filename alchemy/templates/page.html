@@ -15,6 +15,17 @@
 
 {% block content %}
   <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <i class="fa fa-language"></i>
+          <a href="{{ SITEURL }}/{{ page.url }}">{{ page.lang or DEFAULT_LANG }}</a>
+          {% for translation in page.translations %}
+          <a href="{{ SITEURL }}/{{ translation.url }}">{{ translation.lang }}</a>
+          {% endfor %}
+        </li>
+      </ul>
+    </header>
     <div class="content">
       {{ page.content }}
     </div>
