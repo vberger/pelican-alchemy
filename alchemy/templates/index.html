@@ -36,6 +36,15 @@
               {% endfor %}
             </li>
           {% endif %}
+          {% if article.translations %}
+          <li>
+              <i class="fa fa-language"></i>
+              <a href="{{ SITEURL }}/{{ article.url }}">{{ article.lang or DEFAULT_LANG }}</a>
+              {% for translation in article.translations %}
+              <a href="{{ SITEURL }}/{{ translation.url }}">{{ translation.lang }}</a>
+              {% endfor %}
+          </li>
+          {% endif %}
         </ul>
       </header>
       <div class="col-sm-8">
